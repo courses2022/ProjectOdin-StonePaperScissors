@@ -14,6 +14,17 @@ var ComputerScore = 0;
 console.log("Welcome to Rock Paper Scissors");
 console.log("Best of five wins");
 
+for (let gameNum = 1; gameNum <= 5; gameNum++) {
+    playRound();
+        
+}
+
+console.log("GAME RESULT:");
+
+if(UserScore> ComputerScore){console.log("You won the game");}
+else if (ComputerScore > UserScore){console.log("Computer won the game");}
+else{console.log("Its a draw!");}
+
 
 function calculateComputerMove() {
     let moves = ["rock", PAPER, "scissors"];
@@ -24,7 +35,6 @@ function getUserInput() {
     let userMove = prompt("Whats your move? ");
     userMove =  userMove.trim().toLowerCase();
     if(userMove == "rock" || userMove == PAPER || userMove == "scissors"){
-        console.log("Valid move");
         return userMove;
     }else{
         console.log("Invalid move. Try again");
@@ -92,6 +102,8 @@ function playRound(){
     let userMove = getUserInput();
     let computerMove = calculateComputerMove();
     let roundWinner = calculateWhoWon(userMove, computerMove);
+
+    console.log(userMove +" VS Rp"+computerMove)
 
     if(roundWinner == USER_WIN){
         console.log("You won");
