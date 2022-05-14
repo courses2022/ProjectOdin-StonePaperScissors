@@ -6,13 +6,13 @@ var SCISSORS = "scissors";
 var DRAW = "draw";
 var USER_WIN = "userWin";
 var COMPUTER_WIN = "computerWin";
-var INVALID_STATUS = "invalidStatus"
+var INVALID_STATUS = "invalidStatus";
+
+var UserScore = 0;
+var ComputerScore = 0;
 
 console.log("Welcome to Rock Paper Scissors");
 console.log("Best of five wins");
-let userMove = PAPER;
-//userMove = getUserInput();
-let computerMove = calculateComputerMove();
 
 
 function calculateComputerMove() {
@@ -86,6 +86,23 @@ function calculateWhoWon(userMove, computerMove){
         return INVALID_STATUS;
     }
     
+}
+
+function playRound(){
+    let userMove = getUserInput();
+    let computerMove = calculateComputerMove();
+    let roundWinner = calculateWhoWon(userMove, computerMove);
+
+    if(roundWinner == USER_WIN){
+        console.log("You won");
+        UserScore+=1;
+    }else if(roundWinner == COMPUTER_WIN){
+        console.log("Computer won");
+        ComputerScore+=1;
+    }else{
+        console.log("Its a draw");
+    }
+
 }
 
 
