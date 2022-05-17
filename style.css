@@ -55,6 +55,9 @@ a{
 
 .movecard{
     flex-shrink: 1;
+    border: 5px solid #353b48;
+    border-radius: 50%;
+    
 }
 
 #scores{
@@ -62,6 +65,42 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #7f8fa6;
+}
+
+#scores>div{
+    
+    color: #7f8fa6;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.currentScore{
+    color: #40739e;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0 0 4px #e1b12c;
+}
+
+.scoreIcon{
+    color: #dcdde1;
+    vertical-align: middle;
+}
+
+.resetButton{
+    font-size: 40px;
+    color: #e1b12c;
+    padding-top: 30px;
+    text-shadow: 0 0 2px #e1b12c;
+    transition: 0.5s;
+}
+
+.resetButton:hover{
+    transform:scale(1.1);
+    transform:rotateY(30deg);
+    text-shadow: 0 0 2px #000;
 }
 
 #controls{
@@ -69,5 +108,23 @@ a{
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+.movebutton{
+    flex-shrink: 1;
+    border-radius: 50%;
+    filter: grayscale(35%);
+    transition: .5s ;
+}
+
+.movebutton:hover{
+    filter: grayscale(0);
+    box-shadow: 0 0 4px #e1b12c;
+    transform: rotate(30deg);
+}
+
+.movebutton:active{
+    transform: rotate(360deg);
+    box-shadow: 0 0 4px #e84118;
 }
 
