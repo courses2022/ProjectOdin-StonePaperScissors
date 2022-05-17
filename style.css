@@ -10,7 +10,7 @@ html{
     font-family: 'Fredoka One', cursive;
     font-family: 'Nunito', sans-serif;
     
-    color: #487eb0;
+    color: #40739e;
 }
 
 a{
@@ -32,7 +32,7 @@ a{
 
 .section{
     background-color: #f5f6fa;
-    border: 2px solid #e1b12c;
+    border: 4px solid #e1b12c;
     border-radius: 10px;
     padding: 15px;
 }
@@ -47,6 +47,14 @@ a{
 
 #results{
     flex-grow: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.movecard{
+    flex-shrink: 1;
 }
 
 #scores{
@@ -62,3 +70,4 @@ a{
     justify-content: center;
     gap: 20px;
 }
+
