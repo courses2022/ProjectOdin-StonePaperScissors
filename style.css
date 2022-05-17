@@ -17,3 +17,48 @@ a{
     text-decoration: none;
     color: #077043;
 }
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+#header{
+    color: #192a56;
+}
+
+.section{
+    background-color: #f5f6fa;
+    border: 2px solid #e1b12c;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#output{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#results{
+    flex-grow: 8;
+}
+
+#scores{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#controls{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
