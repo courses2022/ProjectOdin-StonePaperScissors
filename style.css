@@ -105,7 +105,6 @@ a{
 
 #controls{
     width: 90%;
-    display: flex;
     justify-content: center;
     gap: 20px;
 }
@@ -126,5 +125,19 @@ a{
 .movebutton:active{
     transform: rotate(360deg);
     box-shadow: 0 0 4px #e84118;
+}
+
+#finalResult{
+    width: 90%;
+    text-align: center;
+    
+}
+
+.hideSection{
+    display: none;
+}
+
+.showSection{
+    display: flex;
 }
 
