@@ -153,6 +153,12 @@ resetButton.addEventListener('click', function(e){
     ComputerScore = 0;
     updateScores();
 
+    var userOutput = document.querySelector('.userMove');
+    userOutput.src="./images/cardback.png";
+
+    var computerOutput = document.querySelector('.computerMove');
+    computerOutput.src = "./images/cardback.png";
+
     controls.classList.add('showSection');
     controls.classList.remove('hideSection');
     finalResult.classList.add('hideSection');
