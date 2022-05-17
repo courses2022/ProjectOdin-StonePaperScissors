@@ -11,19 +11,7 @@ var INVALID_STATUS = "invalidStatus";
 var UserScore = 0;
 var ComputerScore = 0;
 
-console.log("Welcome to Rock Paper Scissors");
-console.log("Best of five wins");
 
-//for (let gameNum = 1; gameNum <= 5; gameNum++) {
-//    playRound();
-        
-//}
-
-console.log("GAME RESULT:");
-
-if(UserScore> ComputerScore){console.log("You won the game");}
-else if (ComputerScore > UserScore){console.log("Computer won the game");}
-else{console.log("Its a draw!");}
 
 
 function calculateComputerMove() {
@@ -100,20 +88,25 @@ function calculateWhoWon(userMove, computerMove){
 
 function playRound(userMove){
     let computerMove = calculateComputerMove();
-    let roundWinner = calculateWhoWon(userMove, computerMove);
+    var roundStatus = calculateWhoWon(userMove, computerMove);
+    updateGameResult(userMove, computerMove, roundStatus);
 
-    console.log(userMove +" VS "+computerMove)
 
-    if(roundWinner == USER_WIN){
-        console.log("You won");
-        UserScore+=1;
-    }else if(roundWinner == COMPUTER_WIN){
-        console.log("Computer won");
-        ComputerScore+=1;
-    }else{
-        console.log("Its a draw");
-    }
+}
 
+function updateGameResult(userMove, computerMove, roundStatus){
+    var userOutput = document.querySelector('.userMove');
+    userOutput.src="./images/"+userMove+".png";
+
+    var computerOutput = document.querySelector('.computerMove');
+    computerOutput.src = "./images/"+computerMove+".png";
+
+    setTimeout(function(){
+        if(roundStatus == COMPUTER_WIN){
+            userOutput.src="./images/"+userMove+".png";
+        }
+            
+    }, 500);
 }
 
 
@@ -123,19 +116,45 @@ function updateScores(){
     scores.innerHTML = UserScore +' - '+ ComputerScore;
 }
 
+function endGame(won){
+    const controls = document.querySelector("#controls");
+    const finalResult = document.querySelector("#finalResult");
+
+    controls.classList.remove('showSection');
+    controls.classList.add('hideSection');
+    finalResult.classList.remove('hideSection');
+
+    if(won){
+        finalResult.innerHTML = "<h2>Congratulations you won the game!!</h2>";
+    }
+    else{
+        finalResult.innerHTML = "<h2>Sorry, this time you lost</h2>";
+    }
+
+
+}
+
 // Add event listeners
 const resetButton = document.querySelector(".resetButton");
 resetButton.addEventListener('click', function(e){
     UserScore = 0;
     ComputerScore = 0;
-
     updateScores();
+
+    controls.classList.add('showSection');
+    controls.classList.remove('hideSection');
+    finalResult.classList.add('hideSection');
 });
 
 const moves = document.querySelectorAll('.movebutton');
 moves.forEach((move) => {
     move.addEventListener('click', (e)=> {
         playRound(e.target.dataset.move);
-        updateScores();
+        if(ComputerScore<=5 && UserScore <=5){
+            updateScores();
+        }
+
+        if(ComputerScore >=5 ||UserScore >=5)
+            endGame(UserScore>ComputerScore);
     });
 });
