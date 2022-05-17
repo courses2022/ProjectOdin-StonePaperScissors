@@ -1,0 +1,19 @@
+
+
+body{
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    background-size: cover;
+}
+html{
+    min-height: 100%;
+    font-family: 'Macondo', cursive;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Nunito', sans-serif;
+    
+    color: #487eb0;
+}
+
+a{
+    text-decoration: none;
+    color: #077043;
+}

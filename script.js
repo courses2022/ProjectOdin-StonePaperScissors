@@ -14,10 +14,10 @@ var ComputerScore = 0;
 console.log("Welcome to Rock Paper Scissors");
 console.log("Best of five wins");
 
-for (let gameNum = 1; gameNum <= 5; gameNum++) {
-    playRound();
+//for (let gameNum = 1; gameNum <= 5; gameNum++) {
+//    playRound();
         
-}
+//}
 
 console.log("GAME RESULT:");
 
@@ -103,7 +103,7 @@ function playRound(){
     let computerMove = calculateComputerMove();
     let roundWinner = calculateWhoWon(userMove, computerMove);
 
-    console.log(userMove +" VS Rp"+computerMove)
+    console.log(userMove +" VS "+computerMove)
 
     if(roundWinner == USER_WIN){
         console.log("You won");
