@@ -98,8 +98,7 @@ function calculateWhoWon(userMove, computerMove){
     
 }
 
-function playRound(){
-    let userMove = getUserInput();
+function playRound(userMove){
     let computerMove = calculateComputerMove();
     let roundWinner = calculateWhoWon(userMove, computerMove);
 
@@ -136,6 +135,7 @@ resetButton.addEventListener('click', function(e){
 const moves = document.querySelectorAll('.movebutton');
 moves.forEach((move) => {
     move.addEventListener('click', (e)=> {
-        console.log(e.target.dataset.move);
+        playRound(e.target.dataset.move);
+        updateScores();
     });
 });
