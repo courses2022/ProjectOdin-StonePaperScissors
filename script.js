@@ -89,6 +89,15 @@ function calculateWhoWon(userMove, computerMove){
 function playRound(userMove){
     let computerMove = calculateComputerMove();
     var roundStatus = calculateWhoWon(userMove, computerMove);
+
+    if(roundStatus == USER_WIN){
+        UserScore+=1;
+    }
+
+    if(roundStatus == COMPUTER_WIN){
+        ComputerScore+=1;
+    }
+
     updateGameResult(userMove, computerMove, roundStatus);
 
 
@@ -103,10 +112,13 @@ function updateGameResult(userMove, computerMove, roundStatus){
 
     setTimeout(function(){
         if(roundStatus == COMPUTER_WIN){
-            userOutput.src="./images/"+userMove+".png";
+            userOutput.src="./images/"+userMove+"Lose.png";
+        }
+        else if(roundStatus == USER_WIN){
+            computerOutput.src = `./images/${computerMove}Lose.png`;
         }
             
-    }, 500);
+    }, 300);
 }
 
 
