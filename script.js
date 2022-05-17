@@ -118,3 +118,24 @@ function playRound(){
 }
 
 
+//UI Methods
+function updateScores(){
+    const scores = document.querySelector('.currentScore');
+    scores.innerHTML = UserScore +' - '+ ComputerScore;
+}
+
+// Add event listeners
+const resetButton = document.querySelector(".resetButton");
+resetButton.addEventListener('click', function(e){
+    UserScore = 0;
+    ComputerScore = 0;
+
+    updateScores();
+});
+
+const moves = document.querySelectorAll('.movebutton');
+moves.forEach((move) => {
+    move.addEventListener('click', (e)=> {
+        console.log(e.target.dataset.move);
+    });
+});
